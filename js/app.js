@@ -2,9 +2,8 @@
 
 var wantPlay = prompt('Hi! welcome to my page! This is a guessing game about me. Your answer should be yes or no. Do you want to play?');
 
-wantPlay= 
-wantPlay.toLowerCase(); 
-
+wantPlay= wantPlay.toLowerCase(); 
+console.log
 
 
 while (wantPlay !== 'yes' &&  wantPlay !=='no') {
@@ -25,19 +24,54 @@ var fullName = prompt('Is my full name Anastasia?');
 fullName= 
 fullName.toLowerCase(); 
 
+while (fullName !== 'yes' &&  fullName !=='no') {
+    fullName = prompt('Is my full name Anastasia?');
+}
 
-var origin = Prompt('Was I born in Ukraine?');
+if (fullName === 'yes'){
+  alert('Yes, you are right!');
+}
 
-origin = 
-origin.toLowerCase(); 
+else {
+  alert('Wrong. My name is Anastasia!');
+}
 
 
-var likeCoding = prompt('Do i like coding?');
 
-likeCoding = 
-likeCoding.toLowerCase(); 
+var origin = prompt('Was I born in Ukraine?');
 
-var learnCode = prompt('Would you like to learn how to code too?');
+origin = origin.toLowerCase(); 
 
-learnCode = 
-lernCode.toLowerCase();
+if (origin === 'yes'){
+    alert('No. I am from Russia.');
+}
+else {
+    alert('Yes! You are right, i was born in Russia.');
+}
+    
+
+var likeCode = prompt('Do I like code?');
+
+likeCode = 
+likeCode.toLowerCase(); 
+
+if (likeCode === 'yes'){
+    alert('Yes! I love coding!');
+}
+else {
+    alert('Wrong. I love coding!');
+}
+    
+    
+
+var wantLearnCode = prompt('Would you like to learn how to code too?');
+
+wantLearnCode = 
+wantLearnCode.toLowerCase();
+
+if (wantLearnCode === 'yes'){
+    alert('Go to  www.codefellows.com');
+}
+else {
+    alert('See you next time!');
+}
