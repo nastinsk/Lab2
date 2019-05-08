@@ -1,77 +1,106 @@
 'use strict';
 
+// I used a lot of repetitive code in this file, in future I am planning to make it into the function.
+
+//welcome to my page question, if user doesn't want to play game he gets to the page AboutMe after he presses 'no' or 'n'
 var wantPlay = prompt('Hi! welcome to my page! This is a guessing game about me. Your answer should be yes or no. Do you want to play?');
 
-wantPlay= wantPlay.toLowerCase(); 
-console.log
+wantPlay= wantPlay.toLowerCase();
+console.log ('Does user want to play?:' + wantPlay);
 
-
-while (wantPlay !== 'yes' &&  wantPlay !=='no') {
-    wantPlay = prompt('Hi! Welcome to my page! This is a guessing game about me. Your answer should be yes or no. Do you want to play?');
+while (wantPlay !== 'yes' &&  wantPlay !=='no' && wantPlay !=='y' && wantPlay !=='n') {
+  wantPlay = prompt('Hi! Welcome to my page! This is a guessing game about me. Your answer should be yes or no. Do you want to play?');
 }
 
-if (wantPlay === 'yes'){
-    alert('great!');
+if (wantPlay === 'yes' || wantPlay === 'y'){
+  alert('great!');
 }
-else {
-    alert('see you next time!');
-    throw('see you next time!');
-    
+else if (wantPlay === 'no' || wantPlay === 'n') {
+  alert('see you next time!');
+  throw('see you next time!');
 }
+
+//question about my name, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
+//untill valid answer won't be received.
 
 var fullName = prompt('Is my full name Anastasia?');
 
-fullName= 
-fullName.toLowerCase(); 
+fullName = fullName.toLowerCase();
+console.log ('Does user think my name is Anastasia?: ' + fullName);
 
-while (fullName !== 'yes' &&  fullName !=='no') {
-    fullName = prompt('Is my full name Anastasia?');
+while (fullName !== 'yes' &&  fullName !=='no' && fullName !=='y' && fullName !=='n') {
+  fullName = prompt('Is my full name Anastasia?');
 }
 
-if (fullName === 'yes'){
+if (fullName === 'yes' || fullName === 'y'){
   alert('Yes, you are right!');
 }
 
-else {
+else if (fullName === 'no' || fullName === 'n') {
   alert('Wrong. My name is Anastasia!');
 }
 
 
 
-var origin = prompt('Was I born in Ukraine?');
 
-origin = origin.toLowerCase(); 
+//question about my myOrigin, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
+//untill valid answer won't be received.
 
-if (origin === 'yes'){
-    alert('No. I am from Russia.');
+var myOrigin = prompt('Was I born in Ukraine?');
+
+myOrigin = myOrigin.toLowerCase();
+
+console.log ('Does user think i was born in Ukraine?: ' + myOrigin);
+
+while (myOrigin !== 'yes' &&  myOrigin !=='no' && myOrigin !== 'y' && myOrigin !== 'n') {
+  myOrigin = prompt('Was I born in Ukraine?');
 }
-else {
-    alert('Yes! You are right, i was born in Russia.');
+
+if (myOrigin === 'yes' || myOrigin === 'y' ){
+  alert('No. I am from Russia.');
 }
-    
+else if (myOrigin === 'no' || myOrigin === 'n') {
+  alert('Yes! You are right, I was born in Russia.');
+}
+
+
+
+//question about like I code or not, user must -//-
 
 var likeCode = prompt('Do I like code?');
 
-likeCode = 
-likeCode.toLowerCase(); 
+likeCode =
+likeCode.toLowerCase();
+console.log ('Does user think that I like code? ' + likeCode);
 
-if (likeCode === 'yes'){
-    alert('Yes! I love coding!');
+while (likeCode !== 'yes' &&  likeCode !=='no' && likeCode !== 'y' && likeCode !== 'n') {
+  likeCode = prompt('Do I like code?');
 }
-else {
-    alert('Wrong. I love coding!');
-}
-    
-    
 
+if (likeCode === 'yes' || likeCode === 'y'){
+  alert('Yes! I love coding!');
+}
+else if (likeCode === 'no' || likeCode === 'n' ) {
+  alert('Wrong. I love coding!');
+}
+
+
+
+//question is asking if user wants to learn code, user must -//-
+//myOriginaly my idea was to put hyperlink that goes to the codefellows website into the alert window. So far I couldn't find a way to do so. 
 var wantLearnCode = prompt('Would you like to learn how to code too?');
 
-wantLearnCode = 
+wantLearnCode =
 wantLearnCode.toLowerCase();
 
-if (wantLearnCode === 'yes'){
-    alert('Go to  www.codefellows.com');
+console.log ('Does user want to learn code?' + wantLearnCode);
+
+while (wantLearnCode !== 'yes' &&  wantLearnCode !=='no' && wantLearnCode !== 'y' && wantLearnCode !== 'n') {
+  wantLearnCode = prompt('Would you like to learn how to code too?');
 }
-else {
-    alert('See you next time!');
+if (wantLearnCode === 'yes' || wantLearnCode === 'y'){
+  alert('Go to  www.codefellows.com');
+}
+else if (wantLearnCode === 'no' || wantLearnCode === 'n'){
+  alert('See you next time!');
 }
