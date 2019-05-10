@@ -10,7 +10,7 @@ while (userName === '') {
   console.log ('User name is ' + userName); 
 }
   
-//array created to store questions from program
+//array created to store questions from program. q -question, y - users says 'yes' on question, 'n' -user answers 'no' on question
 var gameResponds = [
   {q: 'Nice to meet you ' + userName + ' ! Do you want to play my game?',
    y: 'Great!',
@@ -20,6 +20,11 @@ var gameResponds = [
    y: 'Yes, you are right!',
    n: 'Wrong. My name is Anastasia!'
   },
+  {q:'Was I born in Ukraine?',
+  y: 'Wrong. I am from Russia.',
+  n: 'Yes! You are right, I was born in Russia.'
+
+  }
   ''];
 
 
@@ -68,21 +73,21 @@ else if (fullName === 'no' || fullName === 'n') {
 //question about my myOrigin, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
 //untill valid answer won't be received.
   
-var myOrigin = prompt('Was I born in Ukraine?');
+var myOrigin = prompt(gameResponds[2].q);
   
 myOrigin = myOrigin.toLowerCase();
   
 console.log ('Does user think i was born in Ukraine?: ' + myOrigin);
   
 while (myOrigin !== 'yes' &&  myOrigin !=='no' && myOrigin !== 'y' && myOrigin !== 'n') {
-  myOrigin = prompt('Was I born in Ukraine?');
+  myOrigin = prompt(gameResponds[2].q);
 }
   
 if (myOrigin === 'yes' || myOrigin === 'y' ){
-  alert('No. I am from Russia.');
+  alert(gameResponds[2].y);
 }
 else if (myOrigin === 'no' || myOrigin === 'n') {
-  alert('Yes! You are right, I was born in Russia.');
+  alert(gameResponds[2].n);
 }
   
   
