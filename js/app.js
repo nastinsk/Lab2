@@ -33,15 +33,26 @@ var gameResponds = [
    n: 'Wrong. I love coding!'
   },
   //object for 5th y/n question
-  {q:,
-   y:,
-   n:
-  },
-  //object for 6th y/n question
-  {q: ,
-  y: ,
-  n: },
-  {}
+  // {q:,
+  //  y:,
+  //  n:
+  // },
+  // //object for 6th y/n question
+  // {q: ,
+  // y: ,
+  // n: 
+  // },
+  //object for question about fav number
+  {q: 'Guess my favourite number. Numbers should be 1 to 20',
+   wrong1: 'too high. Try again.',
+   wrong2: 'too low. Try again.',
+   wrong3: 'Please use numbers',
+   agree:  'you are right!'},
+   //object for question about countries where i've been
+   {q: 'In what countrys I\'ve been',
+    wrong: 'I have never been there',
+    agree: 'Good guess! I have visited this country!'
+  }
   ];
 
 
@@ -70,7 +81,7 @@ else if (wantPlay === 'no' || wantPlay === 'n') {
 var fullName = prompt(gameResponds[1].q);
   
 fullName = fullName.toLowerCase();
-console.log ('Does user think my name is Anastasia?: ' + fullName);
+console.log (gameResponds[1].q + " Users answer is: " + fullName);
   
 while (fullName !== 'yes' &&  fullName !=='no' && fullName !=='y' && fullName !=='n') {
   fullName = prompt(gameResponds[1].q);
@@ -127,8 +138,25 @@ if (likeCode === 'yes' || likeCode === 'y'){
 else if (likeCode === 'no' || likeCode === 'n' ) {
   alert(gameResponds[3].n);
 }
-  
+ 
 
+var userNum = prompt(gameResponds[4].q);
+var num1 = parseInt(userNum, 10);
+var myNum = Math.floor((Math.random() * 20) + 1);
+for (var i = 0; i < 3; i++) {
+  if (userNum > myNum) {
+    userNum = prompt(gameResponds[4].wrong1);
+  } else if (userNum < myNum){
+    userNum = prompt(gameResponds[4].wrong2);
+  }else if (isNaN(userNum)) {
+    userNum = prompt(gameResponds[4].wrong3);
+  
+  } else if (userNum === myNum) {
+    alert(gameResponds[4].agree);
+    break;
+  }
+   
+}
 
 
 
