@@ -1,2 +1,2 @@
-# Lab2-demo
-this is the demo for lab 2
+# Lab2
+this is the my About me page with the guessing game.

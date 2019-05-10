@@ -12,20 +12,37 @@ while (userName === '') {
   
 //array created to store questions from program. q -question, y - users says 'yes' on question, 'n' -user answers 'no' on question
 var gameResponds = [
+  //object for 1st y/n question
   {q: 'Nice to meet you ' + userName + ' ! Do you want to play my game?',
    y: 'Great!',
    n: 'see you next time!'
   },
+  //object for 2nd y/n question
   {q: 'Is my full name Anastasia?',
    y: 'Yes, you are right!',
    n: 'Wrong. My name is Anastasia!'
   },
+  //object for 3rd y/n question
   {q:'Was I born in Ukraine?',
   y: 'Wrong. I am from Russia.',
   n: 'Yes! You are right, I was born in Russia.'
-
-  }
-  ''];
+  },
+  //object for 4th y/n question
+  {q: 'Do I like code?',
+   y: 'Yes! I love coding!',
+   n: 'Wrong. I love coding!'
+  },
+  //object for 5th y/n question
+  {q:,
+   y:,
+   n:
+  },
+  //object for 6th y/n question
+  {q: ,
+  y: ,
+  n: },
+  {}
+  ];
 
 
 
@@ -94,21 +111,21 @@ else if (myOrigin === 'no' || myOrigin === 'n') {
   
 //question about like I code or not, user must -//-
   
-var likeCode = prompt('Do I like code?');
+var likeCode = prompt(gameResponds[3].q);
   
 likeCode =
   likeCode.toLowerCase();
 console.log ('Does user think that I like code? ' + likeCode);
   
 while (likeCode !== 'yes' &&  likeCode !=='no' && likeCode !== 'y' && likeCode !== 'n') {
-  likeCode = prompt('Do I like code?');
+  likeCode = prompt(gameResponds[3].q);
 }
   
 if (likeCode === 'yes' || likeCode === 'y'){
-  alert('Yes! I love coding!');
+  alert(gameResponds[3].y);
 }
 else if (likeCode === 'no' || likeCode === 'n' ) {
-  alert('Wrong. I love coding!');
+  alert(gameResponds[3].n);
 }
   
 
