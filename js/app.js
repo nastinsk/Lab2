@@ -1,5 +1,7 @@
 'use strict';
 
+var myNum = Math.floor((Math.random()*20)+1);
+
 //collecting the users name
 var userName = prompt('Hi! welcome to my page! This is a guessing game about me. What is your name?');
 console.log ('User name is ' + userName);
@@ -52,7 +54,8 @@ var gameResponds = [
     wrong1: 'too high. Try again.',
     wrong2: 'too low. Try again.',
     wrong3: 'Please use numbers',
-    right:  'you are right!'
+    wrong4: 'You used all your tries. I can eat ' + myNum +' sushi!',
+    right:  'you are right! I can eat ' + myNum +' sushi!'
   },
   //object for question about countries where i've been
   {q: 'I like to travel! Can you guess what states have I been to already?',
@@ -99,7 +102,7 @@ for (var i = 0; i<varArray.length; i++ ){
 
   varArray[i] = varArray[i].toLowerCase();
 
-  while (varArray[i] !== 'yes' &&  varArray[i] !=='no' && varArray[i] !=='y' && varArray[i] !=='n') {
+  while (varArray[i] !== 'yes' && varArray[i] !=='no' && varArray[i] !=='y' && varArray[i] !=='n') {
     varArray[i] = prompt(gameResponds[i+1].q);
   }
 
@@ -117,7 +120,7 @@ for (var i = 0; i<varArray.length; i++ ){
     }
 
   }
-  console.log (gameResponds[i+1].q + " Users answer is: " + varArray[i]);
+  console.log (gameResponds[i+1].q + ' Users answer is: ' + varArray[i]);
   console.log ('Users score: ' + userAnswers.length);
 }
 
@@ -130,25 +133,35 @@ for (var i = 0; i<varArray.length; i++ ){
 //make sure enter numbers
 // if they ranout of guesses teel the number
 
-var userNum = prompt('What is my favorite number?');
-var myNum = 7;
+var userNum = prompt(gameResponds[6].q);
+
+
 for (var b=0;  b< 4; b++){
   if (b === 3 && userNum !== myNum){
-    alert('sorry you did not guess the right number. my fav number is ' + myNum);
+    alert(gameResponds[6].wrong4);
     break;
   }
-    if (userNum< myNum){
-   userNum = Number(prompt('too low.guess a higher number'));
+  if (userNum< myNum){
+    userNum = Number(prompt(gameResponds[6].wrong2));
   } else if (userNum>myNum) {
-   userNum = Number(prompt('too high. Guess a lower number'));
+    userNum = Number(prompt(gameResponds[6].wrong1));
   } else if (userNum === myNum){
-    alert('Good guess my favorite number is ' + myNum);
-    console.log('the user guessed my favorite number');
+    alert(gameResponds[6].right);
+    userAnswers.push(1);
+    console.log('the user guess is right');
     break;
   }else{
-    userNum = Number(prompt('please enter number'));
+    userNum = Number(prompt(gameResponds[6].wrong3));
   }
-  }
+}
+console.log ('Users score: ' + userAnswers.length);
+
+
+
+
+
+
+
 
 //7th question
 //question n prompt
@@ -158,29 +171,32 @@ for (var b=0;  b< 4; b++){
 //if they get it right
 //if they run out of guesses
 
-var myPetsArray = ['tangerine', 'malaki', 'cookie'];
-var isCorrect = false;
+var myState = ['florida', 'washington', 'california','hawaii', 'oregon','arizona','alaska'];
+//var userState = prompt(gameResponds[7].q);
 
-var j = 0; 
+var isCorrect = 'false';
+
+var j = 0;
+
 while (j<6) {
-  var petsGuess = prompt('Guess a name one of my pets?');
+
+  var userState = prompt(gameResponds[7].q);
+  userState = userState.toLowerCase();
   j++;
 
-  for(var a = 0; a< myPetsArray.length; a++){
+  for(var a = 0; a<myState.length; a++){
 
-    if (petsGuess === myPetsArray[a] ){
-      alert('you got it! i have 3 pets named: ' + myPetsArray);
-      if (isCorrect === true) {
+    if (userState === myState[a] ){
+      alert(gameResponds[7].right);
+      isCorrect = 'true';
       break;
     }
   }
-}
-}
-  // if(isCorrect === true)  {
-  //   break
-  
 
-
+  if(isCorrect === 'true'){
+    break;
+  }
+}
 
 //we need to keep score and tally up the correct answers
 //display the correct answers at the end
