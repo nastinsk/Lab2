@@ -90,7 +90,7 @@ var varArray = [fullName, myOrigin, likeCode, haveCat, favFood];
 
 
 
-//question about my name, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
+//question about me, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
 //untill valid answer won't be received.
 
 for (var i = 0; i<varArray.length; i++ ){
@@ -120,49 +120,122 @@ for (var i = 0; i<varArray.length; i++ ){
   console.log (gameResponds[i+1].q + " Users answer is: " + varArray[i]);
   console.log ('Users score: ' + userAnswers.length);
 }
-//question about nuber of sushi that I can eat
-var userNum = prompt(gameResponds[6].q);
-var myNum = Math.floor((Math.random() * 20) + 1);
 
-for (i = 0; i < 3; i++) {
-    
-  if (userNum > myNum) {
-    userNum = prompt(gameResponds[6].wrong1);
-  } else if (userNum < myNum){
-    userNum = prompt(gameResponds[6].wrong2);
+//6th question about he number of sushi that I can eat
+//a question in a promt
+//only allows 4 guess
+//if they guess too high
+//if they  gueess to low
+//if they get right
+//make sure enter numbers
+// if they ranout of guesses teel the number
 
-  } else if (isNaN(userNum)) {
-    userNum = prompt(gameResponds[6].wrong3);
-
+var userNum = prompt('What is my favorite number?');
+var myNum = 7;
+for (var b=0;  b< 4; b++){
+  if (b === 3 && userNum !== myNum){
+    alert('sorry you did not guess the right number. my fav number is ' + myNum);
+    break;
   }
-}
+    if (userNum< myNum){
+   userNum = Number(prompt('too low.guess a higher number'));
+  } else if (userNum>myNum) {
+   userNum = Number(prompt('too high. Guess a lower number'));
+  } else if (userNum === myNum){
+    alert('Good guess my favorite number is ' + myNum);
+    console.log('the user guessed my favorite number');
+    break;
+  }else{
+    userNum = Number(prompt('please enter number'));
+  }
+  }
 
-if (userNum === myNum) {
-    alert(gameResponds[6].right);
-    userAnswers.push(1);  
-}
- //check if this alert respond correctly
-if ((i===3)&&(userNum!== myNum)){
-  alert('You were very close! I can eat ' + myNum + ' sushi');
-}
+//7th question
+//question n prompt
+//need array of answers
+//only 6 guesses
+//if they dont get right tell them they got it and give all answers
+//if they get it right
+//if they run out of guesses
 
+var myPetsArray = ['tangerine', 'malaki', 'cookie'];
+var isCorrect = false;
 
+var j = 0; 
+while (j<6) {
+  var petsGuess = prompt('Guess a name one of my pets?');
+  j++;
 
+  for(var a = 0; a< myPetsArray.length; a++){
 
-var myState = ['florida', 'washington', 'california','hawaii', 'oregon','arizona','iowa', 'georgia','alaska'];
-var userState = prompt(gameResponds[7].q);
-userState = userState.toLowerCase();
-
-for (var j = 0; j < 6; j++) {
-  for(i = 0; i<myState.length; i++) {
-    if (userState === myState[i]) {
-      alert(gameResponds[7].right);
+    if (petsGuess === myPetsArray[a] ){
+      alert('you got it! i have 3 pets named: ' + myPetsArray);
+      if (isCorrect === true) {
       break;
     }
-  } 
-  userState = prompt(gameResponds[7].wrong);
+  }
 }
+}
+  // if(isCorrect === true)  {
+  //   break
+  
 
-//check for the right answers 
-alert ('Congratulations! You have ' + userAnswers.length + ' correct answers!');
-console.log('user have ' + userAnswers.length + ' correct answers');
+
+
+//we need to keep score and tally up the correct answers
+//display the correct answers at the end
+//need a variable to hold this score
+
+// //question about nuber of sushi that I can eat
+// var userNum = prompt(gameResponds[6].q);
+// var myNum = Math.floor((Math.random() * 20) + 1);
+
+// for (i = 0; i < 3; i++) {
+    
+//   if (userNum > myNum) {
+//     userNum = prompt(gameResponds[6].wrong1);
+//   } else if (userNum < myNum){
+//     userNum = prompt(gameResponds[6].wrong2);
+
+//   } else if (isNaN(userNum)) {
+//     userNum = prompt(gameResponds[6].wrong3);
+
+//   }
+// }
+
+// if (userNum === myNum) {
+//     alert(gameResponds[6].right);
+//     userAnswers.push(1);  
+// }
+//  //check if this alert respond correctly
+// if ((i===3)&&(userNum!== myNum)){
+//   alert('You were very close! I can eat ' + myNum + ' sushi');
+// }
+
+
+
+
+// var myState = ['florida', 'washington', 'california','hawaii', 'oregon','arizona','alaska'];
+// var userState = prompt(gameResponds[7].q);
+// userState = userState.toLowerCase();
+
+// if ((userState === myState[0]) || (userState === myState[1]) || (userState === myState[2]) || (userState === myState[3])|| (userState === myState[4]) || (userState === myState[5]) || (userState === myState[6])){
+//   alert(gameResponds[7].right);
+// }else{
+//   for(i = 0; i<myState.length; i++) {
+//     userState = prompt(gameResponds[7].wrong);
+
+// } 
+
+// // for (var j = 0; j < 6; j++) {
+// //   for(i = 0; i<myState.length; i++) {
+// //     if (userState === myState[i]) {
+// //       alert(gameResponds[7].right);
+// //       break;
+// //     }
+// //   } 
+// //   // }
+
+// //check for the right answers 
+// alert ('Congratulations! You have ' + userAnswers.length + ' correct answers!');
+// console.log('user have ' + userAnswers.length + ' correct answers');
