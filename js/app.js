@@ -7,55 +7,61 @@ console.log ('User name is ' + userName);
 //loop to get name from user
 while (userName === '') {
   userName = prompt('Hi! welcome to my page! This is a guessing game about me. What is your name?');
-  console.log ('User name is ' + userName); 
+  console.log ('User name is ' + userName);
 }
-  
+
 //array created to store questions from program. q -question, y - users says 'yes' on question, 'n' -user answers 'no' on question
 var gameResponds = [
-  //object for 1st y/n question
-  {q: 'Nice to meet you ' + userName + ' ! Do you want to play my game?',
-   y: 'Great!',
-   n: 'see you next time!'
-  },
-  //object for 2nd y/n question
-  {q: 'Is my full name Anastasia?',
-   y: 'Yes, you are right!',
-   n: 'Wrong. My name is Anastasia!'
-  },
-  //object for 3rd y/n question
-  {q:'Was I born in Ukraine?',
-  y: 'Wrong. I am from Russia.',
-  n: 'Yes! You are right, I was born in Russia.'
-  },
-  //object for 4th y/n question
-  {q: 'Do I like code?',
-   y: 'Yes! I love coding!',
-   n: 'Wrong. I love coding!'
-  },
-  //object for 5th y/n question
-  // {q:,
-  //  y:,
-  //  n:
-  // },
-  // //object for 6th y/n question
-  // {q: ,
-  // y: ,
-  // n: 
-  // },
-  //object for question about fav number
-  {q: 'Guess my favourite number. Numbers should be 1 to 20',
-   wrong1: 'too high. Try again.',
-   wrong2: 'too low. Try again.',
-   wrong3: 'Please use numbers',
-   agree:  'you are right!'},
-   //object for question about countries where i've been
-   {q: 'In what countrys I\'ve been',
-    wrong: 'I have never been there',
-    agree: 'Good guess! I have visited this country!'
-  }
-  ];
 
-  var userAnswers = [];
+  {q: 'Nice to meet you ' + userName + ' ! Do you want to play my game?',  //object for question with invitation to play
+    y: 'Great!',
+    n: 'see you next time!'
+  },
+
+
+  {q: 'Is my full name Anastasia?',   //object for 1st y/n question about me
+    y: 'Yes, you are right!',
+    n: 'Wrong. My name is Anastasia!'
+  },
+
+
+  {q:'Was I born in Ukraine?',        //object for 2nd y/n question about me
+    y: 'Wrong. I am from Russia.',
+    n: 'Yes! You are right, I was born in Russia.'
+  },
+
+
+  {q: 'Do I like code?',              //object for 3rd y/n question about me
+    y: 'Yes! I love coding!',
+    n: 'Wrong. I love coding!'
+  },
+
+
+  {q: 'Do I have a cat?',                               //object for 4th y/n question about me
+    y: 'Yes! His name is Frodo!',
+    n: 'Wrong. I have a cat and his name is Frodo.'
+  },
+
+  {q: 'Is pasta my favourite food?' ,                              //object for 5th y/n question about me
+    y: 'Wrong! I do not mind pasta but Sushi is my all time favourite.',
+    n: 'Yes! I looooove sushi.'
+  },
+
+  //object for question about fav number
+  {q: 'Guess how many sushi I can eat? Numbers should be 1 to 20',
+    wrong1: 'too high. Try again.',
+    wrong2: 'too low. Try again.',
+    wrong3: 'Please use numbers',
+    right:  'you are right!'
+  },
+  //object for question about countries where i've been
+  {q: 'I like to travel! Can you guess what states have I been to already?',
+    wrong: 'I have never been there. Try again.',
+    right: 'Good guess! I have visited this state!'
+  }
+];
+
+var userAnswers = [];
 
 
 //invitation to play a game, with choice to quit
@@ -64,7 +70,7 @@ var wantPlay = prompt(gameResponds[0].q);
 while (wantPlay !== 'yes' && wantPlay !=='no' && wantPlay !=='y' && wantPlay !=='n') {
   wantPlay = prompt(gameResponds[0].q);
 }
-  
+
 if (wantPlay === 'yes' || wantPlay === 'y'){
   alert(gameResponds[0].y);
 }
@@ -72,208 +78,91 @@ else if (wantPlay === 'no' || wantPlay === 'n') {
   alert(gameResponds[0].n);
   throw(gameResponds[0].n);
 }
-console.log ('Does user want to play?:' + wantPlay);
+console.log ('Does user want to play?' + wantPlay);
 
+//Array wuth variables for y/n questions about me
+var fullName;
+var myOrigin;
+var likeCode;
+var haveCat;
+var favFood;
+var varArray = [fullName, myOrigin, likeCode, haveCat, favFood];
 
 
 
 //question about my name, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
 //untill valid answer won't be received.
-  
-var fullName = prompt(gameResponds[1].q);
-  
-fullName = fullName.toLowerCase();
 
-while (fullName !== 'yes' &&  fullName !=='no' && fullName !=='y' && fullName !=='n') {
-  fullName = prompt(gameResponds[1].q);
-  
-}
-  
-if (fullName === 'yes' || fullName === 'y'){
-  alert(gameResponds[1].y);
-  userAnswers.push(1);
-}
-  
-else if (fullName === 'no' || fullName === 'n') {
-  alert(gameResponds[1].n);
-}
-console.log (gameResponds[1].q + " Users answer is: " + fullName);
-   
-  
+for (var i = 0; i<varArray.length; i++ ){
 
-  
-//question about my myOrigin, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
-//untill valid answer won't be received.
-  
-var myOrigin = prompt(gameResponds[2].q);
-  
-myOrigin = myOrigin.toLowerCase();
-  
+  varArray[i] = prompt(gameResponds[i+1].q);
 
-  
-while (myOrigin !== 'yes' &&  myOrigin !=='no' && myOrigin !== 'y' && myOrigin !== 'n') {
-  myOrigin = prompt(gameResponds[2].q);
-  
-}
-  
-if (myOrigin === 'yes' || myOrigin === 'y' ){
-  alert(gameResponds[2].y);
-}
-else if (myOrigin === 'no' || myOrigin === 'n') {
-  alert(gameResponds[2].n);
-  userAnswers.push(1);
-}
-console.log ('Does user think i was born in Ukraine?: ' + myOrigin);
-  
-  
-//question about like I code or not, user must -//-
-  
-var likeCode = prompt(gameResponds[3].q);
-  
-likeCode =
-  likeCode.toLowerCase();
+  varArray[i] = varArray[i].toLowerCase();
 
-  
-while (likeCode !== 'yes' &&  likeCode !=='no' && likeCode !== 'y' && likeCode !== 'n') {
-  likeCode = prompt(gameResponds[3].q);
-  
-}
-  
-if (likeCode === 'yes' || likeCode === 'y'){
-  alert(gameResponds[3].y);
-  userAnswers.push(1);
-}
-else if (likeCode === 'no' || likeCode === 'n' ) {
-  alert(gameResponds[3].n);
-}
-console.log ('Does user think that I like code? ' + likeCode);
-
-var userNum = prompt(gameResponds[4].q);
-var myNum = Math.floor((Math.random() * 20) + 1);
-for (var i = 0; i < 3; i++) {
-  if (userNum > myNum) {
-    userNum = prompt(gameResponds[4].wrong1);
-  } else if (userNum < myNum){
-    userNum = prompt(gameResponds[4].wrong2);
-
-  }else if (isNaN(userNum)) {
-    userNum = prompt(gameResponds[4].wrong3);
-  
-  } else {
-   alert(gameResponds[4].agree);
-   userAnswers.push(1);
-   
-   break;
+  while (varArray[i] !== 'yes' &&  varArray[i] !=='no' && varArray[i] !=='y' && varArray[i] !=='n') {
+    varArray[i] = prompt(gameResponds[i+1].q);
   }
-   
+
+  if (varArray[i] === 'yes' || varArray[i] === 'y'){
+    alert(gameResponds[i+1].y);
+    if (gameResponds[i+1].y.substring(0,5) !== 'Wrong') {
+      userAnswers.push(1);
+    }
+  }
+
+  else  {
+    alert(gameResponds[i+1].n);
+    if (gameResponds[i+1].n.substring(0,5) !== 'Wrong'){
+      userAnswers.push(1);
+    }
+
+  }
+  console.log (gameResponds[i+1].q + " Users answer is: " + varArray[i]);
+  console.log ('Users score: ' + userAnswers.length);
+}
+//question about nuber of sushi that I can eat
+var userNum = prompt(gameResponds[6].q);
+var myNum = Math.floor((Math.random() * 20) + 1);
+
+for (i = 0; i < 3; i++) {
+    
+  if (userNum > myNum) {
+    userNum = prompt(gameResponds[6].wrong1);
+  } else if (userNum < myNum){
+    userNum = prompt(gameResponds[6].wrong2);
+
+  } else if (isNaN(userNum)) {
+    userNum = prompt(gameResponds[6].wrong3);
+
+  }
 }
 
-//check for the right answers in console
-console.log(userAnswers.length);
-
-
-
-/* // I used a lot of repetitive code in this file, in future I am planning to make it into the function.
-
-//welcome to my page question, if user doesn't want to play game he gets to the page AboutMe after he presses 'no' or 'n'
-var wantPlay = prompt('Hi! welcome to my page! This is a guessing game about me. Your answer should be yes or no. Do you want to play?');
-
-wantPlay= wantPlay.toLowerCase();
-console.log ('Does user want to play?:' + wantPlay);
-
-while (wantPlay !== 'yes' &&  wantPlay !=='no' && wantPlay !=='y' && wantPlay !=='n') {
-  wantPlay = prompt('Hi! Welcome to my page! This is a guessing game about me. Your answer should be yes or no. Do you want to play?');
+if (userNum === myNum) {
+    alert(gameResponds[6].right);
+    userAnswers.push(1);  
 }
-
-if (wantPlay === 'yes' || wantPlay === 'y'){
-  alert('great!');
-}
-else if (wantPlay === 'no' || wantPlay === 'n') {
-  alert('see you next time!');
-  throw('see you next time!');
-}
-
-//question about my name, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
-//untill valid answer won't be received.
-
-var fullName = prompt('Is my full name Anastasia?');
-
-fullName = fullName.toLowerCase();
-console.log ('Does user think my name is Anastasia?: ' + fullName);
-
-while (fullName !== 'yes' &&  fullName !=='no' && fullName !=='y' && fullName !=='n') {
-  fullName = prompt('Is my full name Anastasia?');
-}
-
-if (fullName === 'yes' || fullName === 'y'){
-  alert('Yes, you are right!');
-}
-
-else if (fullName === 'no' || fullName === 'n') {
-  alert('Wrong. My name is Anastasia!');
+ //check if this alert respond correctly
+if ((i===3)&&(userNum!== myNum)){
+  alert('You were very close! I can eat ' + myNum + ' sushi');
 }
 
 
 
 
-//question about my myOrigin, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
-//untill valid answer won't be received.
+var myState = ['florida', 'washington', 'california','hawaii', 'oregon','arizona','iowa', 'georgia','alaska'];
+var userState = prompt(gameResponds[7].q);
+userState = userState.toLowerCase();
 
-var myOrigin = prompt('Was I born in Ukraine?');
-
-myOrigin = myOrigin.toLowerCase();
-
-console.log ('Does user think i was born in Ukraine?: ' + myOrigin);
-
-while (myOrigin !== 'yes' &&  myOrigin !=='no' && myOrigin !== 'y' && myOrigin !== 'n') {
-  myOrigin = prompt('Was I born in Ukraine?');
+for (var j = 0; j < 6; j++) {
+  for(i = 0; i<myState.length; i++) {
+    if (userState === myState[i]) {
+      alert(gameResponds[7].right);
+      break;
+    }
+  } 
+  userState = prompt(gameResponds[7].wrong);
 }
 
-if (myOrigin === 'yes' || myOrigin === 'y' ){
-  alert('No. I am from Russia.');
-}
-else if (myOrigin === 'no' || myOrigin === 'n') {
-  alert('Yes! You are right, I was born in Russia.');
-}
-
-
-
-//question about like I code or not, user must -//-
-
-var likeCode = prompt('Do I like code?');
-
-likeCode =
-likeCode.toLowerCase();
-console.log ('Does user think that I like code? ' + likeCode);
-
-while (likeCode !== 'yes' &&  likeCode !=='no' && likeCode !== 'y' && likeCode !== 'n') {
-  likeCode = prompt('Do I like code?');
-}
-
-if (likeCode === 'yes' || likeCode === 'y'){
-  alert('Yes! I love coding!');
-}
-else if (likeCode === 'no' || likeCode === 'n' ) {
-  alert('Wrong. I love coding!');
-}
-
-
-
-//question is asking if user wants to learn code, user must -//-
-//myOriginaly my idea was to put hyperlink that goes to the codefellows website into the alert window. So far I couldn't find a way to do so. 
-var wantLearnCode = prompt('Would you like to learn how to code too?');
-
-wantLearnCode =
-wantLearnCode.toLowerCase();
-
-console.log ('Does user want to learn code?' + wantLearnCode);
-
-while (wantLearnCode !== 'yes' &&  wantLearnCode !=='no' && wantLearnCode !== 'y' && wantLearnCode !== 'n') {
-  wantLearnCode = prompt('Would you like to learn how to code too?');
-}
-if (wantLearnCode === 'yes' || wantLearnCode === 'y'){
-  alert('Go to  www.codefellows.com');
-}
-else if (wantLearnCode === 'no' || wantLearnCode === 'n'){
-  alert('See you next time!');
-} */
+//check for the right answers 
+alert ('Congratulations! You have ' + userAnswers.length + ' correct answers!');
+console.log('user have ' + userAnswers.length + ' correct answers');
