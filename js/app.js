@@ -1,5 +1,21 @@
 'use strict';
 
+//Array wuth variables for y/n questions about me
+var fullName;
+var myOrigin;
+var likeCode;
+var haveCat;
+var favFood;
+var varArray = [fullName, myOrigin, likeCode, haveCat, favFood];
+var userAnswers = [];
+
+function userPoints(){
+  console.log ('user score: ' + userAnswers.length);
+}
+
+
+
+//variable to use in the 6th question
 var myNum = Math.floor((Math.random()*20)+1);
 
 //collecting the users name
@@ -64,7 +80,6 @@ var gameResponds = [
   }
 ];
 
-var userAnswers = [];
 
 
 //invitation to play a game, with choice to quit
@@ -81,98 +96,88 @@ else if (wantPlay === 'no' || wantPlay === 'n') {
   alert(gameResponds[0].n);
   throw(gameResponds[0].n);
 }
-console.log ('Does user want to play?' + wantPlay);
+console.log ('Does user want to play? ' + wantPlay);
 
-//Array wuth variables for y/n questions about me
-var fullName;
-var myOrigin;
-var likeCode;
-var haveCat;
-var favFood;
-var varArray = [fullName, myOrigin, likeCode, haveCat, favFood];
+
 
 
 
 //question about me, user must choose 'yes', 'no', 'y', 'n'. If user choses something different while loop repeat the question,
 //untill valid answer won't be received.
 
+function fiveQuesitons(gameResponds, varArray){ //gamesResponds[i+1]
+
+  //for (var i = 0; i<varArray.length; i++ ){
+
+  varArray= prompt(gameResponds.q);
+  varArray= varArray.toLowerCase();
+
+  while (varArray !== 'yes' && varArray !=='no' && varArray !=='y' && varArray !=='n') {
+    varArray = prompt(gameResponds.q);
+  }
+
+  if (varArray === 'yes' || varArray === 'y'){
+    alert(gameResponds.y);
+    if (gameResponds.y.substring(0,5) !== 'Wrong') {
+      userAnswers.push(1);
+    }
+  }
+
+  else{
+    alert(gameResponds.n);
+    if (gameResponds.n.substring(0,5) !== 'Wrong'){
+      userAnswers.push(1);
+    }
+
+  }
+  console.log (gameResponds.q + ' Users answer is: ' + varArray);
+  userPoints();
+}
+//}
+
 for (var i = 0; i<varArray.length; i++ ){
-
-  varArray[i] = prompt(gameResponds[i+1].q);
-
-  varArray[i] = varArray[i].toLowerCase();
-
-  while (varArray[i] !== 'yes' && varArray[i] !=='no' && varArray[i] !=='y' && varArray[i] !=='n') {
-    varArray[i] = prompt(gameResponds[i+1].q);
-  }
-
-  if (varArray[i] === 'yes' || varArray[i] === 'y'){
-    alert(gameResponds[i+1].y);
-    if (gameResponds[i+1].y.substring(0,5) !== 'Wrong') {
-      userAnswers.push(1);
-    }
-  }
-
-  else  {
-    alert(gameResponds[i+1].n);
-    if (gameResponds[i+1].n.substring(0,5) !== 'Wrong'){
-      userAnswers.push(1);
-    }
-
-  }
-  console.log (gameResponds[i+1].q + ' Users answer is: ' + varArray[i]);
-  console.log ('Users score: ' + userAnswers.length);
+  fiveQuesitons(gameResponds[i+1],varArray[i]);
 }
 
 //6th question about he number of sushi that I can eat
-//a question in a promt
 //only allows 4 guess
-//if they guess too high
-//if they  gueess to low
-//if they get right
-//make sure enter numbers
-// if they ranout of guesses teel the number
 
 var userNum = prompt(gameResponds[6].q);
 
+for (var b=0;  b < 4; b++){
 
-for (var b=0;  b< 4; b++){
   if (b === 3 && userNum !== myNum){
     alert(gameResponds[6].wrong4);
     break;
+
   }
   if (userNum< myNum){
+
     userNum = Number(prompt(gameResponds[6].wrong2));
+
   } else if (userNum>myNum) {
+
     userNum = Number(prompt(gameResponds[6].wrong1));
+
   } else if (userNum === myNum){
+
     alert(gameResponds[6].right);
     userAnswers.push(1);
     console.log('the user guess is right');
     break;
+
   }else{
+
     userNum = Number(prompt(gameResponds[6].wrong3));
+
   }
 }
-console.log ('Users score: ' + userAnswers.length);
-
-
-
-
-
-
-
+userPoints();
 
 //7th question
-//question n prompt
-//need array of answers
 //only 6 guesses
-//if they dont get right tell them they got it and give all answers
-//if they get it right
-//if they run out of guesses
 
 var myState = ['florida', 'washington', 'california','hawaii', 'oregon','arizona','alaska'];
-//var userState = prompt(gameResponds[7].q);
 
 var isCorrect = 'false';
 
@@ -189,6 +194,7 @@ while (j<6) {
     if (userState === myState[a] ){
       alert(gameResponds[7].right);
       isCorrect = 'true';
+      userAnswers.push(1);
       break;
     }
   }
@@ -198,60 +204,5 @@ while (j<6) {
   }
 }
 
-//we need to keep score and tally up the correct answers
-//display the correct answers at the end
-//need a variable to hold this score
-
-// //question about nuber of sushi that I can eat
-// var userNum = prompt(gameResponds[6].q);
-// var myNum = Math.floor((Math.random() * 20) + 1);
-
-// for (i = 0; i < 3; i++) {
-    
-//   if (userNum > myNum) {
-//     userNum = prompt(gameResponds[6].wrong1);
-//   } else if (userNum < myNum){
-//     userNum = prompt(gameResponds[6].wrong2);
-
-//   } else if (isNaN(userNum)) {
-//     userNum = prompt(gameResponds[6].wrong3);
-
-//   }
-// }
-
-// if (userNum === myNum) {
-//     alert(gameResponds[6].right);
-//     userAnswers.push(1);  
-// }
-//  //check if this alert respond correctly
-// if ((i===3)&&(userNum!== myNum)){
-//   alert('You were very close! I can eat ' + myNum + ' sushi');
-// }
-
-
-
-
-// var myState = ['florida', 'washington', 'california','hawaii', 'oregon','arizona','alaska'];
-// var userState = prompt(gameResponds[7].q);
-// userState = userState.toLowerCase();
-
-// if ((userState === myState[0]) || (userState === myState[1]) || (userState === myState[2]) || (userState === myState[3])|| (userState === myState[4]) || (userState === myState[5]) || (userState === myState[6])){
-//   alert(gameResponds[7].right);
-// }else{
-//   for(i = 0; i<myState.length; i++) {
-//     userState = prompt(gameResponds[7].wrong);
-
-// } 
-
-// // for (var j = 0; j < 6; j++) {
-// //   for(i = 0; i<myState.length; i++) {
-// //     if (userState === myState[i]) {
-// //       alert(gameResponds[7].right);
-// //       break;
-// //     }
-// //   } 
-// //   // }
-
-// //check for the right answers 
-// alert ('Congratulations! You have ' + userAnswers.length + ' correct answers!');
-// console.log('user have ' + userAnswers.length + ' correct answers');
+userPoints();
+alert('Congratulations! You got ' + userAnswers.length + ' questions correct out of 7.');
