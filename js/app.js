@@ -55,11 +55,11 @@ var gameResponds = [
   }
   ];
 
+  var userAnswers = [];
 
 
 //invitation to play a game, with choice to quit
 var wantPlay = prompt(gameResponds[0].q);
-console.log ('Does user want to play?:' + wantPlay);
 
 while (wantPlay !== 'yes' && wantPlay !=='no' && wantPlay !=='y' && wantPlay !=='n') {
   wantPlay = prompt(gameResponds[0].q);
@@ -72,6 +72,8 @@ else if (wantPlay === 'no' || wantPlay === 'n') {
   alert(gameResponds[0].n);
   throw(gameResponds[0].n);
 }
+console.log ('Does user want to play?:' + wantPlay);
+
 
 
 
@@ -81,20 +83,22 @@ else if (wantPlay === 'no' || wantPlay === 'n') {
 var fullName = prompt(gameResponds[1].q);
   
 fullName = fullName.toLowerCase();
-console.log (gameResponds[1].q + " Users answer is: " + fullName);
-  
+
 while (fullName !== 'yes' &&  fullName !=='no' && fullName !=='y' && fullName !=='n') {
   fullName = prompt(gameResponds[1].q);
+  
 }
   
 if (fullName === 'yes' || fullName === 'y'){
   alert(gameResponds[1].y);
+  userAnswers.push(1);
 }
   
 else if (fullName === 'no' || fullName === 'n') {
   alert(gameResponds[1].n);
 }
-  
+console.log (gameResponds[1].q + " Users answer is: " + fullName);
+   
   
 
   
@@ -105,10 +109,11 @@ var myOrigin = prompt(gameResponds[2].q);
   
 myOrigin = myOrigin.toLowerCase();
   
-console.log ('Does user think i was born in Ukraine?: ' + myOrigin);
+
   
 while (myOrigin !== 'yes' &&  myOrigin !=='no' && myOrigin !== 'y' && myOrigin !== 'n') {
   myOrigin = prompt(gameResponds[2].q);
+  
 }
   
 if (myOrigin === 'yes' || myOrigin === 'y' ){
@@ -116,8 +121,9 @@ if (myOrigin === 'yes' || myOrigin === 'y' ){
 }
 else if (myOrigin === 'no' || myOrigin === 'n') {
   alert(gameResponds[2].n);
+  userAnswers.push(1);
 }
-  
+console.log ('Does user think i was born in Ukraine?: ' + myOrigin);
   
   
 //question about like I code or not, user must -//-
@@ -126,41 +132,44 @@ var likeCode = prompt(gameResponds[3].q);
   
 likeCode =
   likeCode.toLowerCase();
-console.log ('Does user think that I like code? ' + likeCode);
+
   
 while (likeCode !== 'yes' &&  likeCode !=='no' && likeCode !== 'y' && likeCode !== 'n') {
   likeCode = prompt(gameResponds[3].q);
+  
 }
   
 if (likeCode === 'yes' || likeCode === 'y'){
   alert(gameResponds[3].y);
+  userAnswers.push(1);
 }
 else if (likeCode === 'no' || likeCode === 'n' ) {
   alert(gameResponds[3].n);
 }
- 
+console.log ('Does user think that I like code? ' + likeCode);
 
 var userNum = prompt(gameResponds[4].q);
-var num1 = parseInt(userNum, 10);
 var myNum = Math.floor((Math.random() * 20) + 1);
 for (var i = 0; i < 3; i++) {
   if (userNum > myNum) {
     userNum = prompt(gameResponds[4].wrong1);
   } else if (userNum < myNum){
     userNum = prompt(gameResponds[4].wrong2);
+
   }else if (isNaN(userNum)) {
     userNum = prompt(gameResponds[4].wrong3);
   
-  } else if (userNum === myNum) {
-    alert(gameResponds[4].agree);
-    break;
+  } else {
+   alert(gameResponds[4].agree);
+   userAnswers.push(1);
+   
+   break;
   }
    
 }
 
-
-
-
+//check for the right answers in console
+console.log(userAnswers.length);
 
 
 
