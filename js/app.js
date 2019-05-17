@@ -82,8 +82,10 @@ var gameResponds = [
 
 
 
-//invitation to play a game, with choice to quit
+//invitation to play a game, with a choice to quit
 var wantPlay = prompt(gameResponds[0].q);
+wantPlay= wantPlay.toLowerCase();
+
 
 while (wantPlay !== 'yes' && wantPlay !=='no' && wantPlay !=='y' && wantPlay !=='n') {
   wantPlay = prompt(gameResponds[0].q);
@@ -139,7 +141,7 @@ for (var i = 0; i<varArray.length; i++ ){
   fiveQuesitons(gameResponds[i+1],varArray[i]);
 }
 
-//6th question about he number of sushi that I can eat
+//6th question about the number of sushi that I can eat
 //only allows 4 guess
 
 var userNum = prompt(gameResponds[6].q);

@@ -1,83 +1,118 @@
-body{
+html{
     background-image: url("background.jpg");
-    background-repeat: no-repeat;
-    background-size: 80%;
-
+    height: 100%;   
 }
 
-h1 {
-    position:relative;
-    background-color:#FFCB9A;
-    color:#2c3531;
-    font-size: 3em;
-    font-weight: bold;
-    text-align:right;
-    padding-right:1.5em;
-    width: 20%;
-    margin: 10% 1% 5% 80%;
-
+body {
+    
+    margin: 2% 4% 2% 4%;
+    border: 1px dashed;
+    /* overflow:auto; */
+    z-index:0;
 }
+
+#whitePage {
+    background-color: white;
+    margin: 2% auto 2% auto;
+    z-index:1;
+    padding: 4% 6% 4% 6%;
+    width: 84%;   
+}
+
 #avatar {
-    width:30%;
-    margin:5% 2% 5% 2%;
+    width:28%;
+    margin:5% 1% 1% 6%;
+    
     
 }
+
 myName {
-    position:relative;
-    color: white;
-    font-size: 3em;
-    font-weight: bold;
-    bottom:1.5em;
+    position: absolute;
+    top: 38%;
+    left: 33%;
+    font: 3em bold;
+    color: grey;
 }
 
-lh {
+myLastName {
+    position: absolute;
+    top: 43%;
+    left: 37%;
+    font: 3em bold;
+    color: grey; 
+}
+parallelogram {
+    position: absolute;
+    background-color: orange;
+    margin: 4% 0% 1% 1%;
+    padding: 0.25% 15% 0.25% 16.5%;
+    width: 10%;
+	height: 5%;
+	transform: skew(-20deg);
+    right:3%;
+}
+h1{
+    position: absolute;
+    margin: 4% 0% 1% 1%;
+    padding: 0.25% 12% 0.25% 1%;
+    right:18.5%;
     font-size: 2em;
 }
-ul {
-    background-color:#116466;
-    color:#D1E8E2;
-    width:20%;
+
+#introduction {
+    position: relative;
+    bottom: 13em;
+    left: 34em;
+    width: 35%;
+    color: rgb(59, 59, 59);
+    font-size: 120%;
+    border-bottom: 2px solid rgb(48,49,49);
+    border-top: 2px solid rgb(48, 49, 49);
+    margin: 1%;
+    padding: 2% 4%;
+}
+
+ul{
+    background-color: yellow;
+    color:rgb(7, 8, 8);
+    width:30%; 
     margin: 2em 1em 2em 1em;
 
-}
-.thingsLike{
-    background-color:#116466;
-    color:#D1E8E2;
-    display:block;
-    font-size: 1em;
-    
-}
-    
-.thingsDo{
-    background-color: white;
-    color: #116466;
-    font-size: 1em;
-    margin: 1em 1em 2em 1em;
+}  
+
+.heading{
+    font: 150% bold;
+    color: rgb(70, 69, 69);
 }
 
-footer{
-    margin:1.5em;
-}
-footer h2{
-    font-size: 1.25em;
-     color:#116466;
-    padding:1em;
-
+.school {
+    font: 120% bold;
+    color: rgb (70 ,69, 69);
 }
 
-.links {
-    font-weight:bold;
-    color:#2c3531;
-    padding-left:1em;
-    display: inline;
-
+p.degree {
+    font-size: 100%;
+    font-style: italic;
+    color: grey
 }
+
 .instagram {
     width:3%;
+    z-index: 3;
+    float:right;
+  
 }
+
 .linkedin {
     width:3%;
+    z-index: 3;
+    float:right; 
 }
+
 .facebook {
     width:3%;
+    z-index: 3;
+    align-items: flex-end;
+    float:right;
 }
+
