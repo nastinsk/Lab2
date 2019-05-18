@@ -1,46 +1,51 @@
+/* font for the page */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap'); 
+
 html{
     background-image: url("background.jpg");
-    height: 100%;   
+    height: 100%;    
 }
 
-body {
-    
+body {  
     margin: 2% 4% 2% 4%;
     border: 1px dashed;
-    /* overflow:auto; */
-    z-index:0;
+    z-index:0;  
 }
-
+/* big white box on the page */
 #whitePage {
     background-color: white;
-    margin: 2% auto 2% auto;
+    margin: 2% auto 33% auto;
     z-index:1;
     padding: 4% 6% 4% 6%;
-    width: 84%;   
+    width: 84%; 
+    height:580px;  
 }
 
 #avatar {
     width:28%;
-    margin:5% 1% 1% 6%;
-    
-    
+    margin:5% 1% 0% 6%;
+    border:1px solid grey;  
+}
+
+myName, myLastName {
+    position: absolute;
+    font: 3em bold;
+    color: grey;
+    text-shadow: 1px 1px 0.5px black;
+    font-family: 'Roboto Slab', serif;
 }
 
 myName {
-    position: absolute;
     top: 38%;
     left: 33%;
-    font: 3em bold;
-    color: grey;
+    
 }
 
 myLastName {
-    position: absolute;
     top: 43%;
     left: 37%;
-    font: 3em bold;
-    color: grey; 
 }
+/* orange background for "about author" */
 parallelogram {
     position: absolute;
     background-color: orange;
@@ -51,43 +56,78 @@ parallelogram {
 	transform: skew(-20deg);
     right:3%;
 }
+
+/* About author */
 h1{
     position: absolute;
     margin: 4% 0% 1% 1%;
     padding: 0.25% 12% 0.25% 1%;
-    right:18.5%;
+    right:16.5%;
     font-size: 2em;
+    text-shadow: 1px 1px 0.5px black;
+    color: rgb(112, 112, 112);
+    font-family: 'Roboto Slab', serif;
+}
+/* settings for the links */
+a {
+    text-decoration: none;
+    color:rgb(133, 75, 22);
+    font-weight: bold;
+}
+/* settings for interactive links */
+a:visited {
+    color: rgb(126, 82, 41);
 }
 
+a#codeFellows:hover{
+    background-color: orange;
+}
+
+/* introduction paragraph */
 #introduction {
     position: relative;
-    bottom: 13em;
-    left: 34em;
+    bottom: 15em;
+    left: 38em;
     width: 35%;
     color: rgb(59, 59, 59);
-    font-size: 120%;
+    font-size: 110%;
     border-bottom: 2px solid rgb(48,49,49);
     border-top: 2px solid rgb(48, 49, 49);
     margin: 1%;
     padding: 2% 4%;
+    text-align: justify;
+    line-height: 1.2em;
+    font-family: 'Roboto Slab', serif;
+}
+/* basic settings for education projects and contacts boxes */
+ul#education, #project, #contacts {
+    position: absolute;      
+    opacity: 0.90;
+    background-color:rgb(248, 233, 204);
+    color:rgb(7, 8, 8);
+    width:25%; 
+    margin: 0% 2% 10% 3%;
 }
 
-ul{
-    background-color: yellow;
-    color:rgb(7, 8, 8);
-    width:30%; 
-    margin: 2em 1em 2em 1em;
-
+ul#education{
+    left: 10%;
+    top: 85%; 
+    padding: 3% 2% 3% 2%;
 }  
-
+/* heading for education, projects an contacts */
 .heading{
-    font: 150% bold;
+    font: 200% bold;
     color: rgb(70, 69, 69);
+    border-bottom: 3px solid rgb(105, 102, 102);
+    margin-bottom: 20px; 
+    font-family: 'Roboto Slab', serif;
 }
 
 .school {
     font: 120% bold;
     color: rgb (70 ,69, 69);
+    padding: 3% 10% 3% 3%;
+    font-family: 'Roboto Slab', serif;
 }
 
 p.degree {
@@ -96,23 +136,55 @@ p.degree {
     color: grey
 }
 
-.instagram {
-    width:3%;
-    z-index: 3;
-    float:right;
-  
+#project {
+    left: 55%;
+    top: 85%; 
+    padding: 3% 2% 3% 2%;
+    list-style-type: decimal;
+    
 }
 
-.linkedin {
-    width:3%;
+.project, .contacts {
+    font: 120% bold;
+    color: rgb (70 ,69, 69);
+    margin: 4%;
+    font-family: 'Roboto Slab', serif;
+}
+/* makes links in project box interactive */
+.project:hover {
+    background-color: orange;
+    width: 100%;
+	height: 0.30%;
+    transform: skew(-30deg);
+    padding: 0.25% 8% 0.25% 4%;
+}
+
+#contacts {
+    top: 133%;
+    left: 55%;
+    height: 26%;
+    padding: 2% 2% 2% 2%;  
+}
+ 
+.contacts {
+    margin: 3% 4% 0% 4%;
+}
+/* pictures and links for social networks */
+.facebook, .instagram, .linkedin {
+    position: absolute;    
+    width:10%;
     z-index: 3;
-    float:right; 
+    top: 66%;
 }
 
 .facebook {
-    width:3%;
-    z-index: 3;
-    align-items: flex-end;
-    float:right;
+    right: 60.5%;     
 }
 
+.instagram {
+    right: 70%;
+}
+
+.linkedin {
+    right: 80%;
+}

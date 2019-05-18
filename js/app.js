@@ -13,8 +13,6 @@ function userPoints(){
   console.log ('user score: ' + userAnswers.length);
 }
 
-
-
 //variable to use in the 6th question
 var myNum = Math.floor((Math.random()*20)+1);
 
@@ -65,7 +63,7 @@ var gameResponds = [
     n: 'Yes! I looooove sushi.'
   },
 
-  //object for question about fav number
+  //object for question about number of sushi
   {q: 'Guess how many sushi I can eat? Numbers should be 1 to 20',
     wrong1: 'too high. Try again.',
     wrong2: 'too low. Try again.',
@@ -73,7 +71,8 @@ var gameResponds = [
     wrong4: 'You used all your tries. I can eat ' + myNum +' sushi!',
     right:  'you are right! I can eat ' + myNum +' sushi!'
   },
-  //object for question about countries where i've been
+
+  //object for question about states where I've been
   {q: 'I like to travel! Can you guess what states have I been to already?',
     wrong: 'I have never been there. Try again.',
     right: 'Good guess! I have visited this state!'
@@ -86,9 +85,9 @@ var gameResponds = [
 var wantPlay = prompt(gameResponds[0].q);
 wantPlay= wantPlay.toLowerCase();
 
-
 while (wantPlay !== 'yes' && wantPlay !=='no' && wantPlay !=='y' && wantPlay !=='n') {
   wantPlay = prompt(gameResponds[0].q);
+  wantPlay= wantPlay.toLowerCase();
 }
 
 if (wantPlay === 'yes' || wantPlay === 'y'){
@@ -99,8 +98,6 @@ else if (wantPlay === 'no' || wantPlay === 'n') {
   throw(gameResponds[0].n);
 }
 console.log ('Does user want to play? ' + wantPlay);
-
-
 
 
 
@@ -116,6 +113,7 @@ function fiveQuesitons(gameResponds, varArray){ //gamesResponds[i+1]
 
   while (varArray !== 'yes' && varArray !=='no' && varArray !=='y' && varArray !=='n') {
     varArray = prompt(gameResponds.q);
+    varArray= varArray.toLowerCase();
   }
 
   if (varArray === 'yes' || varArray === 'y'){
@@ -135,11 +133,12 @@ function fiveQuesitons(gameResponds, varArray){ //gamesResponds[i+1]
   console.log (gameResponds.q + ' Users answer is: ' + varArray);
   userPoints();
 }
-//}
 
 for (var i = 0; i<varArray.length; i++ ){
   fiveQuesitons(gameResponds[i+1],varArray[i]);
 }
+
+
 
 //6th question about the number of sushi that I can eat
 //only allows 4 guess
@@ -175,6 +174,8 @@ for (var b=0;  b < 4; b++){
   }
 }
 userPoints();
+
+
 
 //7th question
 //only 6 guesses
